@@ -15,7 +15,7 @@ public class CommentsTable extends Model {
     @Column(name = "postId")
     public long postId;
 
-    @Column(name = "id")
+    @Column(name = "_id")
     public long id;
 
     @Column(name = "name")

@@ -15,7 +15,7 @@ public class TodoTable extends Model {
     @Column(name = "userId")
     public long userId;
 
-    @Column(name = "id")
+    @Column(name = "_id")
     public long id;
 
     @Column(name = "title")

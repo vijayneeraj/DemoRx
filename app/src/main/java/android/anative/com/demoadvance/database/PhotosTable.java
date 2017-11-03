@@ -15,7 +15,7 @@ public class PhotosTable extends Model {
     @Column(name = "albumId")
     public long albumId;
 
-    @Column(name = "id")
+    @Column(name = "_id")
     public long id;
 
     @Column(name = "title")
