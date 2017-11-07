@@ -1,4 +1,4 @@
-package android.anative.com.demoadvance.ui;
+package android.anative.com.demoadvance.ui.launcherscreen.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

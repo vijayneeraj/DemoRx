@@ -1,6 +1,7 @@
-package android.anative.com.demoadvance.ui;
+package android.anative.com.demoadvance.ui.launcherscreen.model;
 
 import android.anative.com.demoadvance.MyApplication;
+import android.anative.com.demoadvance.database.DatabaseRunable;
 import android.anative.com.demoadvance.utilities.ApplicationUtils;
 import android.anative.com.demoadvance.volley.Models.BaseModel;
 import android.anative.com.demoadvance.volley.Models.CommentsModel;

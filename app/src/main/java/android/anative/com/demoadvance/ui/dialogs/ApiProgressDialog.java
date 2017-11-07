@@ -1,4 +1,4 @@
-package android.anative.com.demoadvance;
+package android.anative.com.demoadvance.ui.dialogs;
 
 import android.app.ProgressDialog;
 import android.content.Context;

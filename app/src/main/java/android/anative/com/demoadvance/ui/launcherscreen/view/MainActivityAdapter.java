@@ -1,7 +1,7 @@
-package android.anative.com.demoadvance.ui.adapter;
+package android.anative.com.demoadvance.ui.launcherscreen.view;
 
 import android.anative.com.demoadvance.R;
-import android.anative.com.demoadvance.ui.ApiDataModel;
+import android.anative.com.demoadvance.ui.launcherscreen.model.ApiDataModel;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;

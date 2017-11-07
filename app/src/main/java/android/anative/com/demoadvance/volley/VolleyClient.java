@@ -1,6 +1,6 @@
 package android.anative.com.demoadvance.volley;
 
-import android.anative.com.demoadvance.ui.ApiDataModel;
+import android.anative.com.demoadvance.ui.launcherscreen.model.ApiDataModel;
 import android.content.Context;
 
 /**

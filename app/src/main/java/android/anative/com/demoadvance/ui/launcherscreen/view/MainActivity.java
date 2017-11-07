@@ -1,10 +1,10 @@
-package android.anative.com.demoadvance;
+package android.anative.com.demoadvance.ui.launcherscreen.view;
 
-import android.anative.com.demoadvance.ui.ApiDataModel;
-import android.anative.com.demoadvance.ui.MainActivityPresenter;
-import android.anative.com.demoadvance.ui.MainActivityPrsenterImpl;
-import android.anative.com.demoadvance.ui.MainView;
-import android.anative.com.demoadvance.ui.adapter.MainActivityAdapter;
+import android.anative.com.demoadvance.R;
+import android.anative.com.demoadvance.ui.dialogs.ApiProgressDialog;
+import android.anative.com.demoadvance.ui.launcherscreen.model.ApiDataModel;
+import android.anative.com.demoadvance.ui.launcherscreen.presenter.MainActivityPresenter;
+import android.anative.com.demoadvance.ui.launcherscreen.presenter.MainActivityPrsenterImpl;
 import android.anative.com.demoadvance.volley.VolleyClient;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mainActivityPresenter.isValidRequest(ApiDataModel.API_COMMENTS);
                 break;
             case R.id.btn2:
+
                 if (mainActivityPresenter != null)
                     mainActivityPresenter.isValidRequest(ApiDataModel.API_PHOTOS);
                 break;

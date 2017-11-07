@@ -1,4 +1,6 @@
-package android.anative.com.demoadvance.ui;
+package android.anative.com.demoadvance.ui.launcherscreen.view;
+
+import android.anative.com.demoadvance.ui.launcherscreen.model.ApiDataModel;
 
 import java.util.HashMap;
 

@@ -1,5 +1,9 @@
-package android.anative.com.demoadvance.ui;
+package android.anative.com.demoadvance.ui.launcherscreen.presenter;
 
+import android.anative.com.demoadvance.ui.launcherscreen.model.ActivityInteractor;
+import android.anative.com.demoadvance.ui.launcherscreen.model.ActivityInteractorImpl;
+import android.anative.com.demoadvance.ui.launcherscreen.model.ApiDataModel;
+import android.anative.com.demoadvance.ui.launcherscreen.view.MainView;
 import android.anative.com.demoadvance.utilities.ApplicationUtils;
 
 import java.util.HashMap;
