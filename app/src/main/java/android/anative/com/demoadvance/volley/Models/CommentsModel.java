@@ -6,7 +6,7 @@ import android.anative.com.demoadvance.database.CommentsTable;
  * Created by Neeraj VijayVargiya on 3/11/17.
  */
 
-public class CommentsModel {
+public class CommentsModel extends BaseModel{
     /**
      * postId : 1
      * id : 1
@@ -64,6 +64,7 @@ public class CommentsModel {
         this.body = body;
     }
 
+    @Override
     public void saveToDb() {
         CommentsTable commentsTable=new CommentsTable();
         commentsTable.postId=postId;

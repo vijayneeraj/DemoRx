@@ -5,6 +5,6 @@ package android.anative.com.demoadvance.volley;
  */
 
 public interface ApiListeners {
-    void onSucess(String response,int apiid,long startTimeStamp,long endTimeStamp);
+    void onSucess(String response,String tag,long startTimeStamp,long endTimeStamp);
     void  onFailure(String error);
 }

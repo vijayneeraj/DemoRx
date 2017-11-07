@@ -1,10 +1,12 @@
 package android.anative.com.demoadvance.volley.Models;
 
+import android.anative.com.demoadvance.database.TodoTable;
+
 /**
  * Created by Neeraj VijayVargiya on 3/11/17.
  */
 
-public class TodoModel {
+public class TodoModel extends BaseModel{
     /**
      * userId : 1
      * id : 1
@@ -47,6 +49,16 @@ public class TodoModel {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    @Override
+    public void saveToDb() {
+        TodoTable todoTable = new TodoTable();
+        todoTable.userId = userId;
+        todoTable.id = id;
+        todoTable.title = title;
+        todoTable.completed = completed;
+        todoTable.save();
     }
 }
 

@@ -1,11 +1,12 @@
 package android.anative.com.demoadvance.volley.Models;
 
+import android.anative.com.demoadvance.database.PhotosTable;
+
 /**
  * Created by Neeraj VijayVargiya on 3/11/17.
  */
 
-public class PhotosModel
-{
+public class PhotosModel extends BaseModel {
     /**
      * albumId : 1
      * id : 1
@@ -58,5 +59,16 @@ public class PhotosModel
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+    @Override
+    public void saveToDb() {
+        PhotosTable photosModel = new PhotosTable();
+        photosModel.albumId = albumId;
+        photosModel.id = id;
+        photosModel.title = title;
+        photosModel.url = url;
+        photosModel.thumbnailUrl = thumbnailUrl;
+        photosModel.save();
     }
 }

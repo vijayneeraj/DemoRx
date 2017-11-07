@@ -1,10 +1,12 @@
 package android.anative.com.demoadvance.volley.Models;
 
+import android.anative.com.demoadvance.database.PostTable;
+
 /**
  * Created by Neeraj VijayVargiya on 3/11/17.
  */
 
-public class PostModel
+public class PostModel extends BaseModel
 {
     /**
      * userId : 1
@@ -51,5 +53,15 @@ public class PostModel
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    @Override
+    public void saveToDb() {
+        PostTable postTable=new PostTable();
+        postTable.userId=userId;
+        postTable.id=id;
+        postTable.title=title;
+        postTable.body=body;
+        postTable.save();
     }
 }

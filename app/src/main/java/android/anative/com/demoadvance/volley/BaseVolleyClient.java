@@ -1,7 +1,6 @@
 package android.anative.com.demoadvance.volley;
 
 import android.anative.com.demoadvance.MyApplication;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 
@@ -23,10 +22,9 @@ public class BaseVolleyClient {
 
     public static final int POST_REQ = 1;
     public static final int GET_REQ = 0;
-    private ProgressDialog progressDialog;
     private boolean isShowProgressDialog = false;
     private Context context;
-    private int apiId;
+    private String apiId;
     private long startTimeStamp;
     private int reqType;
     private String url;
@@ -35,14 +33,11 @@ public class BaseVolleyClient {
     ApiListeners apiListeners;
     private Map<String, String> headers;
 
-    public BaseVolleyClient(Context context, ApiListeners apiListeners) {
+    public BaseVolleyClient(ApiListeners apiListeners) {
         instance = this;
-        this.context = context;
         this.apiListeners = apiListeners;
         params = new HashMap<>();
         headers = new HashMap<>();
-        progressDialog = new ProgressDialog(context);
-        initDialog();
     }
 
     public BaseVolleyClient addHeader(String key, String value) {
@@ -55,7 +50,7 @@ public class BaseVolleyClient {
         return instance;
     }
 
-    public BaseVolleyClient tag(int apiId) {
+    public BaseVolleyClient tag(String apiId) {
         this.apiId = apiId;
         return instance;
     }
@@ -75,11 +70,6 @@ public class BaseVolleyClient {
         return instance;
     }
 
-    protected void initDialog() {
-        progressDialog.setMessage("Wait..");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setCancelable(false);
-    }
 
     public BaseVolleyClient addPostParams(String key, String value) {
         params.put(key, value);
@@ -94,14 +84,10 @@ public class BaseVolleyClient {
         } catch (VolleyException e) {
             printLog(e.getMessage());
         }
-        if (isShowProgressDialog) {
-            progressDialog.show();
-        }
         printRequest();
         StringRequest stringRequest = new StringRequest(reqType, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
                 printLog(url + "\n" + "ApiId = " + apiId + "\n" + "response:" + response);
                 if (apiListeners != null) {
                     apiListeners.onSucess(response, apiId, startTimeStamp, System.currentTimeMillis());
@@ -110,7 +96,6 @@ public class BaseVolleyClient {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
                 printLog(url + "\n" + "ApiId = " + apiId + "\n" + "error:" + error.getMessage());
                 if (apiListeners != null) {
                     apiListeners.onFailure(error.getMessage());

@@ -1,5 +1,6 @@
 package android.anative.com.demoadvance.volley;
 
+import android.anative.com.demoadvance.ui.ApiDataModel;
 import android.content.Context;
 
 /**
@@ -10,49 +11,48 @@ public class VolleyClient {
     private Context context;
     private ApiListeners apiListeners;
 
-    public VolleyClient(Context context) {
+    public VolleyClient() {
     }
 
-    public VolleyClient(Context context, ApiListeners apiListeners) {
+    public VolleyClient(ApiListeners apiListeners) {
         this.apiListeners = apiListeners;
-        this.context = context;
     }
 
     public void getComments() {
-        new BaseVolleyClient(context, apiListeners)
+        new BaseVolleyClient(apiListeners)
                 .showDialog(true).
                 startTimeStamp(System.currentTimeMillis())
-                .tag(Api.ID_COMMENT_API)
+                .tag(ApiDataModel.API_COMMENTS)
                 .type(BaseVolleyClient.GET_REQ)
                 .url(Api.COMMENT_URL)
                 .execute();
     }
 
     public void getPhotos() {
-        new BaseVolleyClient(context, apiListeners)
+        new BaseVolleyClient(apiListeners)
                 .showDialog(true).
                 startTimeStamp(System.currentTimeMillis())
-                .tag(Api.ID_PHOTOS_URL)
+                .tag(ApiDataModel.API_PHOTOS)
                 .type(BaseVolleyClient.GET_REQ)
                 .url(Api.PHOTOS_URL)
                 .execute();
     }
 
     public void getTodos() {
-        new BaseVolleyClient(context, apiListeners)
+        new BaseVolleyClient(apiListeners)
                 .showDialog(true).
                 startTimeStamp(System.currentTimeMillis())
-                .tag(Api.ID_TODO_API)
+                .tag(ApiDataModel.API_TODO)
                 .type(BaseVolleyClient.GET_REQ)
                 .url(Api.TODO_URL)
                 .execute();
     }
 
     public void getPosts() {
-        new BaseVolleyClient(context, apiListeners)
+        new BaseVolleyClient(apiListeners)
                 .showDialog(true).
                 startTimeStamp(System.currentTimeMillis())
-                .tag(Api.ID_POST_API)
+                .tag(ApiDataModel.API_POSTS)
                 .type(BaseVolleyClient.GET_REQ)
                 .url(Api.POST_URL)
                 .execute();
