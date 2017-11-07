@@ -8,6 +8,7 @@ import android.anative.com.demoadvance.ui.adapter.MainActivityAdapter;
 import android.anative.com.demoadvance.volley.VolleyClient;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HashMap<String, ApiDataModel> hashMap;
     private MainActivityAdapter mainActivityAdapter;
     private ArrayList<ApiDataModel> arrayList;
+    private Handler handler;
+    boolean isButtonPressed = false;
 
     @Override
 
@@ -54,6 +57,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void findViews() {
         hashMap = new HashMap<>();
         arrayList = new ArrayList<>();
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!isButtonPressed) {
+                    onClick(btn1);
+                    onClick(btn2);
+                    onClick(btn3);
+                    onClick(btn4);
+
+                }
+            }
+        }, 5000);
         apiProgressDialog = new ApiProgressDialog(this);
         mainActivityPresenter = new MainActivityPrsenterImpl(this);
         gridview = (GridView) findViewById(R.id.gridview);
@@ -76,18 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-//    @Override
-//    public void onSucess(String response, int apiid, long startTimeStamp, long endTimeStamp) {
-
-//    }
-//
-//    @Override
-//    public void onFailure(String error) {
-//
-//    }
-
     @Override
     public void onClick(View view) {
+        isButtonPressed = true;
         switch (view.getId()) {
             case R.id.btn1:
                 if (mainActivityPresenter != null)
